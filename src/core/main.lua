@@ -1,4 +1,4 @@
-local users = {}
+local users = {} -- como se fosse nosso banco de dados.
 
 
 
@@ -52,6 +52,11 @@ function signIn(username, password)
   end
 
   local account = users[exists]
+
+  if (account.password ~= password) then
+    return print("As senhas não são identicas.")
+  end
+
 
   return print("Seja bem vindo: "..account.username.. "Seu saldo é: R$"..account.ammount)
 end

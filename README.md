@@ -4,8 +4,8 @@ Um simples sistema de banco não profissional semelhante aos bancos brasileiros.
 
 
 Task List:
--> [x] Criar array de usuários.
--> [x] Função de criar usuário.
+-> [x] Criar array de usuários. X
+-> [x] Função de criar usuário. X
 -> [x] Criar função que verifica a senha do usuário.
 -> [x] Exibir dados do usuário.
 
