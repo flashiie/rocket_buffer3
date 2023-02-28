@@ -1,6 +1,8 @@
 local users = {} -- como se fosse nosso banco de dados.
 
 
+local loggedAs
+
 
 --@params:
 -- username: string
@@ -58,15 +60,18 @@ function signIn(username, password)
   end
 
 
+  loggedAs = account.username
+
   return print("Seja bem vindo: "..account.username.. "Seu saldo é: R$"..account.ammount)
 end
+
 
 
 
 --@params:
 --username: string
 --@return: boolean
-function deleteUser(username)
+local function deleteUser(username)
   if (type(username) ~= "string") then
     return false
   end
@@ -80,7 +85,23 @@ function deleteUser(username)
   local account = users[exists]
 
   account = nil
-
+  users[exists] = nil
 
   return true
+end
+
+
+function logout()
+  if (not loggedAs) then
+    return
+  end
+
+  deleteUser(loggedAs)
+  iprint("Usuário: "..loggedAs.. " saiu do sistema.")
+
+  loggedAs = nil
+end
+
+function getUsers()
+  return #users
 end
